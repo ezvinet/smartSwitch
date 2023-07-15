@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ORDER NOW</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <form action="https://script.google.com/macros/s/AKfycbzyCsFWr21CLCfaz-5ERt76Tg7u5ijb41gaNMrjPS4fBjXBhal4aSLER-1JypF8-3ar_A/exec" 
+	             
+	id="form" method="post">
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-md-11" style="margin:0 auto; float:none;">
+          <h3 align="center">ORDER DETAILS</h3>
+          <br />
+          
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Enter Name</label>
+                  <input type="text" name="filename" id="filename" placeholder="Enter Name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label>Enter Address</label>
+                  <textarea name="address" placeholder="Enter Address" class="form-control" required></textarea>
+                </div>
+
+                  <div class="form-group">
+                  <label>Select color</label>
+      <select id="ddselect" onchange="ddlsclect();"class="form-control" multiple required style="height:30px;">
+                    <option>White </option>
+                    <option >Black </option>
+                    
+                    
+
+                  </select>
+				  
+				  <input type="text"  id="pcbcolor" name="pcbcolor"class="form-control" multiple required style="height:40px;">
+                </div>
+              </div>
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <label>Enter Mobile Number</label>
+                  <input type="text" name="mobile" placeholder="Enter Mobile WhatsApp or telegram" class="form-control" pattern="\d*" required />
+                </div>
+
+                  <div class="form-group">
+                  <label>Select  quantity</label>
+      <select id="ddselect1" onchange="ddlsclect1();"class="form-control" multiple required style="height:100px;">
+                    <option>**W    1   pcs</option>
+                    <option >**W   2 pcs</option>
+					<option >**W   3 pcs</option>
+					<option >**W   4 pcs</option>
+					<option >**W   5 pcs</option>
+					<option >**W   6 pcs</option>
+					<option >**W   7 pcs</option>
+					<option >**W   8 pcs</option>
+					<option >**W   9 pcs</option>
+					<option >**W   10 pcs</option>
+					<option >**W   11 pcs</option>
+					<option >**W  12 pcs</option>
+					
+                    
+                  </select>
+				  <br>
+				  <input type="text"  id="quantity" name="quantity"class="form-control" multiple required style="height:40px;">
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="form-group" align="center">
+              <input type="submit" name="submit" value="Submit" class="btn btn-info" />
+            </div>
+          </form>
+		   <script>
+    $('#uploadfile').on("change", function() {
+        var file = this.files[0];
+        var fr = new FileReader();
+        fr.fileName = file.name;
+        fr.onload = function(e) {
+            e.target.result
+            html = '<input type="hidden" name="data" value="' + e.target.result.replace(/^.*,/, '') + '" >';
+            html += '<input type="hidden" name="mimetype" value="' + e.target.result.match(/^.*(?=;)/)[0] + 'fff" >';
+            html += '<input type="hidden" name="filename" value="' + e.target.fileName + '" >';
+            $("#data").empty().append(html);
+        }
+        fr.readAsDataURL(file);
+    });
+	 
+    </script>
+	<script>
+	 function ddlsclect()
+	 {
+	 var d=document.getElementById("ddselect");
+	 var displaytext=d.options[d.selectedIndex].text;
+	 document.getElementById("pcbcolor").value=displaytext;
+	 }
+
+    </script>
+		<script>
+	 function ddlsclect1()
+	 {
+	 var d=document.getElementById("ddselect1");
+	 var displaytext=d.options[d.selectedIndex].text;
+	 document.getElementById("quantity").value=displaytext;
+	 }
+
+    </script>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
